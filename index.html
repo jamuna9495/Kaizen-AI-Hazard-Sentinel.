@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KAIZEN AI | Thermal Hazard Sentinel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ui-wrapper">
+        <div class="emergency-strobe" id="strobe"></div>
+        
+        <aside class="sidebar">
+            <div class="brand">火災<span>AI</span></div> <div class="status-block">
+                <div class="pulse"></div>
+                <small id="sys-status">MONITORING_SAFE</small>
+            </div>
+            <nav>
+                <button class="nav-item active">THERMAL_FEED</button>
+                <button class="nav-item">HAZARD_MAP</button>
+                <button class="nav-item">OSHA_LOG</button>
+            </nav>
+        </aside>
+
+        <main class="main-stage">
+            <header class="header">
+                <div class="bread-crumb">SENSORS // INFRARED_OPTICS // ZONE_A</div>
+                <div id="clock">00:00:00</div>
+            </header>
+
+            <div class="vision-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="fire-overlay"></canvas>
+                
+                <div class="ai-hud">
+                    <div class="alert-box" id="fire-alert">
+                        <div class="warning-text">CRITICAL_HAZARD_DETECTED</div>
+                        <div class="coords">LOC: X=45.2 Y=12.9</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="stat-card">
+                    <label>THERMAL_INTENSITY</label>
+                    <div class="value" id="heat-val">24°C</div>
+                </div>
+                <div class="stat-card" id="risk-card">
+                    <label>FIRE_PROBABILITY</label>
+                    <div class="value" id="prob-val">0.02%</div>
+                </div>
+                <button class="btn-scan" onclick="simulateFireDetection()">MANUAL_OVERRIDE_TEST</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
