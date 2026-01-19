@@ -1,0 +1,35 @@
+:root { --neon: #00f3ff; --fire: #ff4d00; --bg: #050505; }
+body { background: var(--bg); color: #fff; font-family: 'JetBrains Mono', monospace; margin: 0; overflow: hidden; }
+
+.ui-wrapper { display: flex; height: 100vh; position: relative; }
+
+/* Emergency Strobe Effect */
+.emergency-strobe { position: absolute; inset: 0; background: rgba(255, 0, 0, 0.2); z-index: 100; display: none; pointer-events: none; animation: flash 0.5s infinite; }
+@keyframes flash { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Sidebar */
+.sidebar { width: 220px; border-right: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; }
+.brand { font-size: 28px; font-weight: 800; }
+.brand span { color: var(--fire); }
+.status-block { display: flex; align-items: center; gap: 10px; margin: 20px 0 50px; font-size: 10px; color: var(--neon); }
+.pulse { width: 8px; height: 8px; background: var(--neon); border-radius: 50%; animation: pulse 1.5s infinite; }
+
+/* Vision Container */
+.main-stage { flex: 1; padding: 40px; display: flex; flex-direction: column; }
+.vision-container { position: relative; flex: 1; border: 1px solid #222; overflow: hidden; }
+video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.2); }
+#fire-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* Alert Box */
+.alert-box { 
+    position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+    border: 2px solid var(--fire); background: rgba(255, 77, 0, 0.2);
+    padding: 20px; text-align: center; display: none; z-index: 10;
+}
+.warning-text { font-weight: 800; font-size: 18px; color: var(--fire); text-shadow: 0 0 10px var(--fire); }
+
+/* Dashboard */
+.dashboard { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding-top: 30px; }
+.stat-card { background: rgba(255,255,255,0.03); padding: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+.btn-scan { background: none; border: 1px solid var(--fire); color: var(--fire); cursor: pointer; font-family: inherit; font-weight: 800; }
+.btn-scan:hover { background: var(--fire); color: #000; box-shadow: 0 0 20px var(--fire); }
